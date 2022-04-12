@@ -24,13 +24,13 @@ from lightgbm import LGBMClassifier
 
 
 #The full dataframe with user features
-user_df = pd.read_csv('Datasets/Final_dataset/user_df_all_features.csv')
+user_df = pd.read_csv('Datasets/user_df_all_features.csv')
 
 #The target labels of the train set
-train_labels  = pd.read_csv('Datasets/Final_dataset/snorkel_labels.csv')
+train_labels  = pd.read_csv('Datasets/snorkel_labels.csv')
 
 #The target labels of the handlabeled test set
-test_labels = pd.read_csv('Datasets/Final_dataset/test_set_labeled.csv', sep = ',')
+test_labels = pd.read_csv('Datasets/test_set_labeled.csv', sep = ',')
 
 train_df = user_df[user_df['user_id'].isin(train_labels.user_id.to_list())]
 train_df = pd.merge(left = train_df, 
@@ -82,8 +82,7 @@ vt = VarianceThreshold()
 preprocessor = ColumnTransformer(
     transformers=[
         ("num", numeric_transformer, numeric_features),  
-        ("cat", categorical_transformer, categorical_features)
-       
+        ("cat", categorical_transformer, categorical_features)     
     ],
     remainder = 'passthrough'   
 )
