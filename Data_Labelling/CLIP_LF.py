@@ -72,4 +72,4 @@ def assign_gender_pred(row):
 #Apply the CLIP prediction
 user_df['CLIP'] = user_df['profile_image_url'].apply(lambda row : CLIP_classification(row))
 user_df['CLIP_gender'] = user_df['CLIP'].apply(lambda row : assign_gender_pred(row))
-user_df.to_csv('Data_Labelling/CLIP.csv', index = False)
+user_df.to_csv('Data_Labelling/Gender/CLIP.csv', index = False)
