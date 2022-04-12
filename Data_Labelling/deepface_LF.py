@@ -32,4 +32,4 @@ user_df['deepface'] = user_df['profile_image_url'].apply(lambda row : deep_face_
 user_df['deepface_gender'] = user_df['deepface'].apply(lambda row: 0 if row =='Woman'
                                                                    else 1 if row == 'Man'
                                                                    else -1)
-user_df.to_csv('Data_Labelling/deepface.csv',index = False)
+user_df.to_csv('Data_Labelling/Gender/deepface.csv',index = False)
