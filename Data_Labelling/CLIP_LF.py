@@ -4,8 +4,6 @@
 import pandas as pd
 from PIL import Image
 import requests
-
-
 import clip
 import torch
 
