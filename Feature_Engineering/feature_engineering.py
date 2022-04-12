@@ -311,8 +311,12 @@ corpus_test  = [remove_stopwords(tweet) for tweet in corpus_test]
 corpus_test  = [remove_hyperlinks(tweet) for tweet in corpus_test] 
 corpus_test = [' '.join(tweet) for tweet in corpus_test]
 
-#Load model
-model = Top2Vec.load('top2vec')
+#Train the Top2Vec model
+model = Top2Vec(corpus_topic,  
+                workers = 8,
+                speed = 'learn',
+                keep_documents = False)
+model.save('top2vec')
 
 for i in range(0,1000,100):
   #Add the test set users and give them a topic score
