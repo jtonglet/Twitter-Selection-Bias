@@ -164,6 +164,13 @@ print_average_metrics(score_lgbm_gender)
 print_average_metrics(score_cb_gender)
 
 
+#Fit the models on all the train set
+pipe_lr_gender.fit(X_gender,y_gender)
+pipe_rf_gender.fit(X_gender,y_gender)
+pipe_xgb_gender.fit(X_gender,y_gender)
+pipe_lgbm_gender.fit(X_gender,y_gender)
+pipe_cb_gender.fit(X_gender,y_gender)
+
 
 #Predictions for all users, labeled and unlabeled
 pred_lr_gender = np.concatenate((pipe_lr_gender.predict(X_pool),  pipe_lr_gender.predict(X_test_gender)))
