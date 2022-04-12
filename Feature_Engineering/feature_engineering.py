@@ -17,6 +17,8 @@ train_df = pd.read_csv('Datasets/train_set_no_company.csv')
 train_df_ids = pd.read_csv('Datasets/train_set_no_company.csv').user_id.to_list()
 tweet_df = pd.read_csv("Datasets/tweet_df_final.csv")
 test_df = user_df[~user_df['user_id'].isin(train_df_ids)]
+
+
 #####################
 # Metadata Features #
 #####################
