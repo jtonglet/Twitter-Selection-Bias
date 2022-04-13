@@ -400,4 +400,4 @@ pred_loc_C_df = pd.DataFrame({'user_id': train_df.user_id.to_list() + location_t
                                 'lgbm':  pred_lgbm_loc_C,
                                 'cb': np.ravel(pred_cb_loc_C)
                               })  
-pred_loc_C_df.to_csv('Output/Noisy_Classifiers/location_V_predictions.csv')                           
+pred_loc_C_df.to_csv('Output/Noisy_Classifiers/location_C_predictions.csv')                           
