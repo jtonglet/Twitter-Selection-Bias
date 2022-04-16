@@ -13,7 +13,7 @@ import warning
 import m3inference
 
 #Load data
-test_df = pd.read_csv("Datasets/Final_dataset/test_set.csv")
+test_df = pd.read_csv("output/test_set.csv")
 
 #Preprocessing 
 columns_to_keep = ["user_id","name","screen_name","description","profile_image_url"]
@@ -66,4 +66,4 @@ prediction_df = pd.DataFrame({"id": id,
                               "19-29":age_19_29,
                               "30-39":age_30_39,
                               "40+":age_40})
-prediction_df.to_csv('Datasets/inference_results/M3.csv')
+prediction_df.to_csv('output/M3_predictions_test_set.csv')
