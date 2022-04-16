@@ -9,8 +9,8 @@ import pandas as pd
 
 
 #Load data
-user_df = pd.read_csv("output/users/raw_users/user_df_final.csv")
-tweet_df = pd.read_csv("output/tweet_content/tweet_df_final.csv")
+user_df = pd.read_csv("output/user_df_final.csv")
+tweet_df = pd.read_csv("output/tweet_df_final.csv")
 
 
 #Collect a list of the ids of all the users in the tweet dataframe
