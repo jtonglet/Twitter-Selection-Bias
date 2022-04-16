@@ -4,7 +4,7 @@
 This repository contains the code implementation of the thesis "Understanding and Correcting Selection Bias in the Sentiments derived from Flemish Tweets" written by Jonathan Tonglet and Astrid Jehoul under the supervision of Manon Reusens and Bart Baesens. The project was conducted in partnership with Statistiek Vlaanderen, represented by Michael Reusens.
 
 <p align="center">
-  <img width="50%" src="img/process.PNG" alt="header" />
+  <img width="75%" src="img/process.PNG" alt="header" />
 </p>
 
 
