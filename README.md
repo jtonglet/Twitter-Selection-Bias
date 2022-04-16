@@ -7,6 +7,9 @@ This repository contains the code implementation of the thesis "Understanding an
   <img width="75%" src="img/process.PNG" alt="header" />
 </p>
 
+Social media sources, and Twitter especially, constitute an interesting alternative to traditional surveys to monitor public opinion, as they are produced much faster, in larger volumes and without direct implication of the analyst. However, the demographic distribution of the Twitter population does not match census data. This problem, known as selection bias, is well-known in survey methodology and its correction is performed by resampling and reweighting methods which usually requires demographic information about the collected sample. However demographic attributes on Twitter are not directly available and need to be inferred. 
+The objective of this thesis is to define a process to infer the demographic attributes of Twitter users located in Flanders and to correct selection biases with resampling and reweighting methods. 
+
 
 ## Structure of the repository
 
