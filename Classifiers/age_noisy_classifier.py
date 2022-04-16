@@ -222,4 +222,4 @@ pred_age_df =  pd.DataFrame({'user_id': train_df.user_id.to_list() + age_test.us
                                 'lgbm':  pred_lgbm_age,
                                 'cb': np.ravel(pred_cb_age)
                               })
-pred_age_df.to_csv('Output/Noisy_Classifiers/age_predictions.csv')
+pred_age_df.to_csv('output/Noisy_Classifiers/age_predictions.csv')
