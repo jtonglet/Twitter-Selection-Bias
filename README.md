@@ -30,7 +30,11 @@ Demographic inference is characterized by a label scarcity problem, as the raw d
   
   </p>
   
-## Installation
+## Data Access
+
+Due to privacy reasons, the twitter data collected for the thesis experiments cannot be shared online. However, aggregated demographic predictions are available in ....
+  
+## Requirements
 
 <p align="justify">
   
