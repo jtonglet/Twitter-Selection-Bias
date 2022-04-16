@@ -5,7 +5,7 @@ import pandas as pd
 
 
 
-active_user_df = pd.read_csv("output/users/active_users/active_user_df_final.csv")
+active_user_df = pd.read_csv("output/active_user_df_final.csv")
 
 train_df, test_df = train_test_split(active_user_df,
                                      test_size = 0.02,
