@@ -180,7 +180,7 @@ aggregation_dict = {'source': lambda x: x.value_counts().index[0],  #most freque
                     'reply_settings':lambda x: x.value_counts().index[0], #most frequent reply settings
                     'possibly_sensitive': 'sum',   #count the number of possibly sensitive tweets written by the user (boolean)
                     'tweet_mentions': lambda x : ','.join(x),   #string with all mentions
-                    'text': lambda x : '  <delimiter>  '.join(x), #string of all tweets. <delimiter> separates tweets. #Use <delimiter> with .split() to get access to a list again
+                    'text': lambda x : '  <delimiter>  '.join(x), #string of all tweets. <delimiter> separates tweets
                     'tweet_id': 'count'  #count the number of distinct tweets
                     }
 
