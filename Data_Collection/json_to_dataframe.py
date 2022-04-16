@@ -246,5 +246,5 @@ print("Without duplicates : %s locations"%len(location_df_final))
 tweet_location_df_final = tweet_df_final.merge(location_df_final,on='location_id',how='left')
 
 #Save files
-tweet_location_df_final.to_csv("output/tweet_content/tweet_df_final.csv",index = False)
-user_df_final.to_csv("output/users/raw_users/user_df_final.csv", index = False)
+tweet_location_df_final.to_csv("output/tweet_df_final.csv",index = False)
+user_df_final.to_csv("output/user_df_final.csv", index = False)
