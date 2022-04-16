@@ -7,7 +7,7 @@ import requests
 from deepface import DeepFace
 
 #Load data
-user_df = pd.read_csv('Datasets/Final_dataset/active_user_df_final.csv')
+user_df = pd.read_csv('output/active_user_df_final.csv')
 user_df = user_df[['user_id','profile_image_url']].fillna(' ')
 user_df['profile_image_url'] = user_df['profile_image_url'].apply(lambda row : row.replace('_normal', '_400x400'))
 
