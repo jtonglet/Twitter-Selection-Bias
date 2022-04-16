@@ -187,4 +187,4 @@ pred_gender_df = pd.DataFrame({'user_id': train_df.user_id.to_list() + gender_te
                                 'lgbm':  pred_lgbm_gender,
                                 'cb': pred_cb_gender
                               })
-pred_gender_df.to_csv('Output/Noisy_Classifiers/gender_predictions.csv')
+pred_gender_df.to_csv('output/Noisy_Classifiers/gender_predictions.csv')
