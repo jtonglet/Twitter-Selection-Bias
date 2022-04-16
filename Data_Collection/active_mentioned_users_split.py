@@ -24,5 +24,5 @@ print(" ")
 print("The dataset includes %s mentioned users." %(len(mentioned_user_df)))
 
 
-mentioned_user_df.to_csv("output/users/mentioned_users/mentioned_user_df_final.csv", index = False)
-active_user_df.to_csv("output/users/active_users/active_user_df_final.csv", index = False)
+mentioned_user_df.to_csv("output/mentioned_user_df_final.csv", index = False)
+active_user_df.to_csv("output/active_user_df_final.csv", index = False)
