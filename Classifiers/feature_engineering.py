@@ -12,10 +12,10 @@ from top2vec import Top2Vec
 
 
 #Load dataset
-user_df = pd.read_csv("Datasets/active_user_df_final.csv") 
-train_df = pd.read_csv('Datasets/train_set_no_company.csv') 
-train_df_ids = pd.read_csv('Datasets/train_set_no_company.csv').user_id.to_list()
-tweet_df = pd.read_csv("Datasets/tweet_df_final.csv")
+user_df = pd.read_csv("output/active_user_df_final.csv") 
+train_df = pd.read_csv('output/train_set_no_company.csv') 
+train_df_ids = pd.read_csv('output/train_set_no_company.csv').user_id.to_list()
+tweet_df = pd.read_csv("output/tweet_df_final.csv")
 test_df = user_df[~user_df['user_id'].isin(train_df_ids)]
 
 
@@ -343,4 +343,4 @@ for i in topic_nums:  #For each topic create a feature
   tweet_BoW_user_df[topic_feature] = [scores_dict[u] for u in range(len(tweet_BoW_user_df))] 
 
 tweet_BoW_user_df =  tweet_BoW_user_df.drop(columns = ['text','tweet_count_dataset'])
-tweet_BoW_user_df.to_csv('Datasets/user_df_all_features.csv',index = False)
+tweet_BoW_user_df.to_csv('output/user_df_all_features.csv',index = False)
