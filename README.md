@@ -18,7 +18,7 @@ The objective of this thesis is to define a process to infer the demographic att
 - *Data_Labeling* : Code to create Labeling Functions and a weakly labeled training set using the Snorkel generative label model. It also includes keywords lists and knowledge sources used by the labeling functions.
 - *Demographic_Inference* : Code to perform demographic inference with the extended generative model  or the [M3](https://github.com/euagendas/m3inference) model.
 - *Selection_Bias_Correction* : Scripts to correct selection bias using a resampling method and to compute the Twitter inclusion probabilities.
--*Visualisations*:Code to generate the plots shown in the thesis paper.
+- *Visualisations*:Code to generate the plots shown in the thesis paper.
 
 ## Installation
 
