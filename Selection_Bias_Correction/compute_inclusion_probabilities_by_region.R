@@ -1,8 +1,8 @@
 ###############################################################################################################################
-# compute the inclusion probabilities for Flanders provinces
-# Code from Wang 2019 : Demographic Inference and representative population estimates
+# compute the inclusion probabilities for Flemish provinces
+# Code from Wang et al., 2019 : Demographic Inference and representative population estimates
 # from multilingual social media data 
-# github link : 
+# github link :  https://github.com/euagendas/twitter-poststratification
 ###############################################################################################################################
 
 options(warn=-1)
@@ -13,7 +13,7 @@ library(data.table)
 
 # fb_data3 is for models assuming inhomogeneous bias
 # Loading demographics data 
-fb_data3 =  read.csv("data/inclusion_proba_input.csv",
+fb_data3 =  read.csv("inclusion_proba_input.csv",
                      header=TRUE,sep=";",dec = ',')
 fb_data3 = na.omit(fb_data3)
 View(fb_data3)
@@ -85,10 +85,10 @@ for(i in 1:no_samples){
 }
 
 incl_probs_df =  data.frame(incl_probs)
-incl_probs_df$province = fb_data3$ï..region
+incl_probs_df$province = fb_data3$Ã¯..region
 incl_probs_df$age = fb_data3$age
 incl_probs_df$gender = fb_data3$gender
 colnames(incl_probs_df) <- c("incl_prob", "province", "age", "gender")
 setcolorder(incl_probs_df, c("province", "age", "gender", "incl_prob"))
 
-write.csv(incl_probs_df, file = "data/inclusion_probabilities_provinces.csv")
+write.csv(incl_probs_df, file = "inclusion_probabilities_provinces.csv")
