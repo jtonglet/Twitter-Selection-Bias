@@ -13,7 +13,11 @@ library(data.table)
 
 # fb_data3 is for models assuming inhomogeneous bias
 # Loading demographics data 
-fb_data3 =  read.csv("Datasets/Demographic_Inference/results.csv")
+fb_data3 =  read.csv("data/inclusion_proba_input.csv",
+                     header=TRUE,sep=";",dec = ',')
+fb_data3 = na.omit(fb_data3)
+View(fb_data3)
+
 
 compute_sum_per_region <- function(y_true, no_comb_attr=8){
   sum_per_city <- rowSums(matrix(y_true, ncol=no_comb_attr, byrow=TRUE))
@@ -33,7 +37,8 @@ run_joint_count_model <- function(fb_data1, formular){
 }
 
 # Zagheni
-formular <- 'census ~ twitter + age+gender + (0+twitter |country) + (0+age+gender|country)+0'
+# 'census ~ twitter + age+gender + (0+twitter |country) + (0+age+gender|country)+0'
+formular <- 'census ~ twitter + age+ gender + (0+twitter |country) + (0+age+gender|country) +0'
 btt_perCountryCoef <- run_joint_count_model(fb_data3, formular)
 btt_perCountryCoef <- data.frame(btt_perCountryCoef$country)
 btt_perCountryCoef$country = unique(fb_data3$country)
@@ -43,7 +48,7 @@ no_samples = nrow(fb_data3)
 incl_probs = rep(0, no_samples)
 
 k=1
-country_code = 'BE'
+country_code = 'ANT'
 for(i in 1:no_samples){
   if(country_code != fb_data3$country[i]){
     k=k+1
@@ -68,22 +73,22 @@ for(i in 1:no_samples){
     age_coef = btt_perCountryCoef$ageage_3039[k]
   }
   else{
-    age_coef = btt_perCountryCoef$ageage_4099[k]
+    age_coef = btt_perCountryCoef$ageage_4049[k]
   }
   # Following equation 2 in the paper
   #log f1(a) = -Ba , log f2(g) = -Bg, v = 1-B1
   log_prob = (1-tw_coef)*log(tw_cnt)-age_coef-gender_coef
   
-  per_city_prob = exp(log_prob)
-  incl_probs[i] = per_city_prob
+  prob = exp(log_prob)
+  print(prob)
+  incl_probs[i] = prob
 }
 
 incl_probs_df =  data.frame(incl_probs)
-incl_probs_df$nuts3 = fb_data3$nuts3
+incl_probs_df$province = fb_data3$ï..region
 incl_probs_df$age = fb_data3$age
 incl_probs_df$gender = fb_data3$gender
-incl_probs_df$country = fb_data3$country
-colnames(incl_probs_df) <- c("incl_prob", "province", "age", "gender", "country")
-setcolorder(incl_probs_df, c("province", "age", "gender", "incl_prob", "country"))
+colnames(incl_probs_df) <- c("incl_prob", "province", "age", "gender")
+setcolorder(incl_probs_df, c("province", "age", "gender", "incl_prob"))
 
-write.csv(incl_probs_df, file = "Datasets/Post_Stratification/inclusion_probabilities_city.csv")
+write.csv(incl_probs_df, file = "data/inclusion_probabilities_provinces.csv")
