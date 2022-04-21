@@ -15,8 +15,7 @@ def create_headers(bearer_token):
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
     return headers
 
-def create_url(screen_name, cursor):
-    
+def create_url(screen_name, cursor):  
     search_url = "https://api.twitter.com/1.1/followers/ids.json" #Change to the endpoint you want to collect data from
 
     #change params based on the endpoint you are using
@@ -79,8 +78,8 @@ def retrieve_all_followers(screen_name, headers):
 
 
 #Load data
-active_user_df = pd.read_csv("output/users/active_users/active_user_df_final.csv")
-mentioned_user_df = pd.read_csv("output/users/mentioned_users/mentioned_user_df_final.csv")
+active_user_df = pd.read_csv("output/active_user_df_final.csv")
+mentioned_user_df = pd.read_csv("output/mentioned_user_df_final.csv")
 #Keep the verified accounts only
 verified_active = active_user_df[active_user_df["verified"]]
 verified_active = verified_active.fillna("Missing")
@@ -116,8 +115,7 @@ print("%s of he users were self-identified as from Belgium"%len(verified[be_mask
 be_verified = verified[be_mask]
 
 #Remove accounts with less than 10000 and more than 2000000 followers
-celebrities = be_verified[(be_verified["followers_count"] >= 10000) 
-                        
+celebrities = be_verified[(be_verified["followers_count"] >= 10000)                         
                            & (be_verified["followers_count"]<= 200000)
                           ]
 print("%s celebrities retrieved" %len(celebrities))
@@ -126,12 +124,11 @@ celebrities = celebrities.sort_values(by = "followers_count", ascending = True)
 
 
 #Perform the data collection
-bearer_token = " "
+bearer_token = "insert_beare_token"
 headers = create_headers(bearer_token)
 
 followers_list = celebrities.apply(lambda row : retrieve_all_followers(row["screen_name"], headers), axis = 1)
 celebrities['followers_list'] = followers_list
-
 
 
 #Create the feature matrix
