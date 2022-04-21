@@ -11,6 +11,7 @@ time
 ast
 tqdm
 pprint
+shutil
 datetime
 snorkel
 re
