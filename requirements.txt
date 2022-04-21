@@ -25,5 +25,3 @@ lightgbm
 catboost
 m3inference
 top2vec
-geopandas
-folium
