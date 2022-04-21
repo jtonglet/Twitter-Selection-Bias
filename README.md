@@ -4,7 +4,7 @@
 This repository contains the code implementation of the thesis "Understanding and Correcting Selection Bias in the Sentiments derived from Flemish Tweets" written by Jonathan Tonglet and Astrid Jehoul under the supervision of Manon Reusens and Bart Baesens. The project was conducted in partnership with Statistiek Vlaanderen, represented by Michael Reusens.
 
 <p align="center">
-  <img width="75%" src="img/process.PNG" alt="header" />
+  <img width="80%" src="img/process.PNG" alt="header" />
 </p>
 
 Social media sources, and Twitter especially, constitute an interesting alternative to traditional surveys to monitor public opinion, as they are produced much faster, in larger volumes and without direct implication of the analyst. However, the demographic distribution of the Twitter population does not always match census data. This problem, known as selection bias, is well-known in survey methodology and its correction is performed by resampling and reweighting methods which usually requires demographic information about the collected sample. However demographic attributes on Twitter are not directly available and need to be inferred. 
