@@ -1,7 +1,6 @@
 ###############################################################################################################################
-# compute the inclusion probabilities for Flemish provinces
-# Code from Wang et al., 2019 : Demographic Inference and representative population estimates
-# from multilingual social media data 
+# Compute the inclusion probabilities for Flemish provinces based on the code and methodology presented in 
+# "Demographic Inference and Representative Population Estimates from Multilingual Social Media Data, Wang et al., 2019
 # github link :  https://github.com/euagendas/twitter-poststratification
 ###############################################################################################################################
 
@@ -42,6 +41,11 @@ formular <- 'census ~ twitter + age+ gender + (0+twitter |country) + (0+age+gend
 btt_perCountryCoef <- run_joint_count_model(fb_data3, formular)
 btt_perCountryCoef <- data.frame(btt_perCountryCoef$country)
 btt_perCountryCoef$country = unique(fb_data3$country)
+
+#Compute predictions
+model <- lmer(formular, data=fb_data3)
+predictions <- predict(model)
+fb_data3$prediction = predictions
 
 # compute inclusion probabilities
 no_samples = nrow(fb_data3)
@@ -92,3 +96,4 @@ colnames(incl_probs_df) <- c("incl_prob", "province", "age", "gender")
 setcolorder(incl_probs_df, c("province", "age", "gender", "incl_prob"))
 
 write.csv(incl_probs_df, file = "inclusion_probabilities_provinces.csv")
+write.csv(fb_data3,file = 'data/census_with_predictions.csv')
