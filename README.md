@@ -23,7 +23,9 @@ Demographic inference is characterized by a label scarcity problem, as the raw d
   
 ## Demographic Inference results
 
-| Model | Gender Acc | Gender F1 | Age Accuracy | Age F1 | Location Acc | Location F1 |
+
+
+| Model | Gender Acc | Gender F1 | Age Acc | Age F1 | Location Acc | Location F1 |
 | --- | --- |  --- |  --- | --- | --- | --- |
 | Base Generative | 0.84 |  0.59 | 0.08 | 0.16 | 0.51 | 0.61 |
 | Mode | 0.69 | 0.4 |  0.52 | 0.17 | 0.34 | 0.073 |
@@ -35,17 +37,17 @@ Demographic inference is characterized by a label scarcity problem, as the raw d
 ## Structure of the repository
 <p align="justify">
   
-- *Classifiers* :  Scripts to create a feature matrix and  train the noisy classifiers on the weakly labeled training set.
-- *Data_Collection* : Scripts used to collect data from the Twitter Academic Research API and to format in a Pandas DataFrame. Data collection code is largely inspired from [this](https://towardsdatascience.com/an-extensive-guide-to-collecting-tweets-from-twitter-api-v2-for-academic-research-using-python-3-518fcb71df2a) excellent online tutorial. Includes code to identify active user accounts, perform a train-test split and remove company accounts from the training set.
-- *Data_Labeling* : Code to create Labeling Functions and a weakly labeled training set using the Snorkel generative label model. It also includes keywords lists and knowledge sources used by the labeling functions.
-- *Demographic_Inference* : Code to perform demographic inference with the extended generative model  or the [M3](https://github.com/euagendas/m3inference) model.
-- *Selection_Bias_Correction* : Scripts to correct selection bias using a resampling method and to compute the Twitter inclusion probabilities.
+- *Classifiers* :  Create a feature matrix and  train the noisy classifiers on the weakly labeled training set.
+- *Data_Collection* : Collect data from the Twitter Academic Research API and format it in a Pandas DataFrame. Data collection code is largely inspired from [this](https://towardsdatascience.com/an-extensive-guide-to-collecting-tweets-from-twitter-api-v2-for-academic-research-using-python-3-518fcb71df2a) excellent online tutorial. Includes code to identify active user accounts, perform a train-test split and remove company accounts from the training set.
+- *Data_Labeling* : Create Labeling Functions and a weakly labeled training set using the Snorkel generative label model. It also includes keywords lists and knowledge sources used by the labeling functions.
+- *Demographic_Inference* : Perform demographic inference with the extended generative model  or the [M3](https://github.com/euagendas/m3inference) model.
+- *Selection_Bias_Correction* : Correct selection bias using a resampling method and compute the Twitter inclusion probabilities.
   
   </p>
   
 ## Data Access
 
-Due to privacy reasons, the twitter data collected for the thesis experiments cannot be shared online. However, aggregated demographic predictions are available in ....
+For privacy reasons, the twitter data collected for the thesis experiments cannot be shared online. However, aggregated demographic predictions are available [here](https://github.com/jtonglet/Twitter-Selection-Bias/blob/main/Selection_Bias_Correction/Census_Demographics_Twitter.csv).
   
 ## Requirements
 
