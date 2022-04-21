@@ -1,4 +1,4 @@
-# Understanding and Correction Selection Bias in the sentiments derived from Flemish Tweets
+# Understanding and Correcting Selection Bias in the sentiments derived from Flemish Tweets
 
 
 This repository contains the code implementation of the master's thesis "Understanding and Correcting Selection Bias in the Sentiments derived from Flemish Tweets" written by Jonathan Tonglet and Astrid Jehoul in 2021-2022 under the supervision of Manon Reusens and Bart Baesens. The project was conducted in partnership with Statistiek Vlaanderen, represented by Michael Reusens.
@@ -14,9 +14,9 @@ The objective of the thesis is to define a process to infer the demographic attr
 
 <p align="justify">
   
-To deal with the absence of 
+
   
-Demographic inference is characterized by a label scarcity problem, as the raw data collected from the Twitter API does not come with demographic labels. A first solution is to manually label a sample of users. However this approach is costly and not scalable. This paper relies on Programmatic Weak Supervision, a unified framework of weak supervision approaches, to generate a weakly labeled training set.  
+Demographic inference is characterized by a label scarcity problem, as the raw data collected from the Twitter API does not come with demographic labels. A first solution is to manually label a sample of users. However this approach is costly and not scalable. This thesis paper relies instead on Programmatic Weak Supervision, a unified framework of weak supervision approaches, to generate a weakly labeled training set.   
   
   </p>
   
