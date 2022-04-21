@@ -1,22 +1,36 @@
-# Twitter-Selection-Bias
+# Understanding and Correction Selection Bias in the sentiments derived from Flemish Tweets
 
 
-This repository contains the code implementation of the thesis "Understanding and Correcting Selection Bias in the Sentiments derived from Flemish Tweets" written by Jonathan Tonglet and Astrid Jehoul under the supervision of Manon Reusens and Bart Baesens. The project was conducted in partnership with Statistiek Vlaanderen, represented by Michael Reusens.
+This repository contains the code implementation of the master's thesis "Understanding and Correcting Selection Bias in the Sentiments derived from Flemish Tweets" written by Jonathan Tonglet and Astrid Jehoul in 2021-2022 under the supervision of Manon Reusens and Bart Baesens. The project was conducted in partnership with Statistiek Vlaanderen, represented by Michael Reusens.
 
 <p align="center">
   <img width="80%" src="img/process.PNG" alt="header" />
 </p>
 
-Social media sources, and Twitter especially, constitute an interesting alternative to traditional surveys to monitor public opinion, as they are produced much faster, in larger volumes and without direct implication of the analyst. However, the demographic distribution of the Twitter population does not always match census data. This problem, known as selection bias, is well-known in survey methodology and its correction is performed by resampling and reweighting methods which usually requires demographic information about the collected sample. However demographic attributes on Twitter are not directly available and need to be inferred. 
-The objective of this thesis is to define a process to infer the demographic attributes of Twitter users located in Flanders and to correct selection biases with resampling and reweighting methods. 
+Social media sources, and Twitter especially, constitute an interesting alternative to traditional surveys to monitor the public opinion, as they are produced much faster, in larger volumes and without direct implication of the analyst. However, the demographic distribution of the Twitter population does not always match census data. This problem, known as selection bias, is well-known in survey methodology and its correction is performed with resampling and reweighting methods which usually require demographic information about the collected sample. However, demographic attributes on Twitter are not directly available and need to be inferred. 
+The objective of the thesis is to define a process to infer the demographic attributes of Twitter users located in Flanders and to correct selection biases with resampling and reweighting methods, as shown on the figure above.
 
 ## Snorkel and Programmatic Weak Supervision
 
 <p align="justify">
   
+To deal with the absence of 
+  
 Demographic inference is characterized by a label scarcity problem, as the raw data collected from the Twitter API does not come with demographic labels. A first solution is to manually label a sample of users. However this approach is costly and not scalable. This paper relies on Programmatic Weak Supervision, a unified framework of weak supervision approaches, to generate a weakly labeled training set.  
   
   </p>
+  
+  
+## Demographic Inference results
+
+| Model | Gender Acc | Gender F1 | Age Accuracy | Age F1 | Location Acc | Location F1 |
+| --- | --- |  --- |  --- | --- | --- | --- |
+| Base Generative | 0.84 |  0.59 | 0.08 | 0.16 | 0.51 | 0.61 |
+| Mode | 0.69 | 0.4 |  0.52 | 0.17 | 0.34 | 0.073 |
+| M3  | 0.92 | 0.9 | 0.55 | 0.37 | - | - | 
+| Extended Generative | 0.92 |  0.9 | 0.55 | 0.41 | 0.69 | 0.62 |
+
+
 
 ## Structure of the repository
 <p align="justify">
