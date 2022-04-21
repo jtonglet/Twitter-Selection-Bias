@@ -8,7 +8,7 @@ import pandas as pd
 
 class Resampler:
 
-    def __init__(self,N = 2000, n = 10):
+    def __init__(self,N = 2000, n = 10, seed = 42):
         """
         Args:
             N  (int) : desired sample size at the end of the resampling process
@@ -16,8 +16,8 @@ class Resampler:
         """
         self.N = N
         self.n = n   
- 
-
+        self.seed = seed
+        
     def fit(self, census, sample_dist):
         """
         Compute the transition, acceptance and transition acceptance matrices from the biased social 
@@ -41,11 +41,11 @@ class Resampler:
     def get_transition_matrix(self):
         return self.Q
 
-       
+        
     def get_acceptance_matrix(self):
         return self.A
 
-    
+
     def get_transition_acceptance_matrix(self):
         return self.QA
 
@@ -63,7 +63,10 @@ class Resampler:
         """
         s_id = []
         s_dem = []
-        i = 1
+        i = 1 
+        
+        np.random.seed(self.seed)
+
         X_0 =  dataset.copy(deep = True).sample(self.n).reset_index(drop=True)
 
         while i <= self.N / self.n:
