@@ -122,16 +122,6 @@ preprocessor = ColumnTransformer(
 )
 
 #Classifiers
-lr_age = LogisticRegression(solver = 'saga',
-                            penalty = 'elasticnet',
-                               C = 0.82,
-                               max_iter = 500,
-                               class_weight = 'balanced',
-                               l1_ratio = 0.3,
-                               random_state = 42
-                               )
-
-olr_age = LogisticAT(alpha = 81)
 
 lr_loc_A = LogisticRegression(solver = 'saga',
                               penalty = 'elasticnet',
