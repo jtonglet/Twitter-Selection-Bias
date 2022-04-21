@@ -5,11 +5,8 @@ import seaborn as sns
 import pprint
 import json
 from tqdm import tqdm
-from google.colab import files
 import time
-import os
 import shutil
-import warning
 import m3inference
 
 #Load data
