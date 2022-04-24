@@ -31,7 +31,7 @@ Demographic inference is characterized by a label scarcity problem, as the raw d
 | M3  | 0.92 | 0.9 | 0.55 | 0.37 | - | - | 
 | Extended Generative | 0.92 |  0.9 | 0.55 | 0.41 | 0.69 | 0.62 |
 
-Acc = accuracy
+Acc = accuracy;
 F1 = macro F1-score
 
 ## Structure of the repository
