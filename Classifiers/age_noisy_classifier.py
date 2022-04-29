@@ -103,7 +103,7 @@ lr_age = LogisticRegression(solver = 'saga',
 olr_age = LogisticAT(alpha = 81)
 
 rf_age = RandomForestClassifier(bootstrap = False,
-                                   max_features = 200,
+                                max_features = 200,
                                    min_samples_split = 21,
                                    min_samples_leaf = 3,
                                    n_estimators = 480,
@@ -130,12 +130,12 @@ lgbm_age = LGBMClassifier(bagging_fraction = 0.548,
                              max_depth = 12,
                              min_gain_to_split = 0.767,
                              num_leaves = 1721,
-                             class_weight = {0 : 20, 1 : 1, 2: 12, 3 : 6.5},
+                             class_weight = {0 : 4.86, 1: 0.35, 2: 2.94, 3: 1.63},
                              random_state = 42)
 
 
 cb_age = CatBoostClassifier(verbose = 0,
-                            class_weights = {0 : 20, 1 : 1, 2: 12, 3 : 6.5},
+                            class_weights = {0 : 4.86, 1: 0.35, 2: 2.94, 3: 1.63},
                             random_seed = 42)
 
 
