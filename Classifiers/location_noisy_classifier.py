@@ -220,6 +220,7 @@ lr_loc_C = LogisticRegression(solver = 'saga',
                                max_iter = 500,
                                class_weight = 'balanced',
                                l1_ratio = 0.7,
+                               class_weight = {0 : 3.3, 1 : 9.2, 2 : 4.64, 3:6.75, 4:4.45 },
                                random_state = 42
                                )
 
@@ -252,11 +253,12 @@ lgbm_loc_C = LGBMClassifier(bagging_fraction = 1,
                              max_depth = 3,
                              min_gain_to_split = 1.2338,
                              num_leaves = 610,
+                             class_weight = {0 : 3.3, 1 : 9.2, 2 : 4.64, 3:6.75, 4:4.45 },
                              random_state = 42)
 
 
 cb_loc_C = CatBoostClassifier(verbose = 0,
-                            class_weights = None,
+                              class_weight = {0 : 3.3, 1 : 9.2, 2 : 4.64, 3:6.75, 4:4.45 },
                             random_seed = 42)
 
 
