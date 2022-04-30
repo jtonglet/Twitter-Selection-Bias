@@ -344,7 +344,7 @@ pipe_lgbm_loc_B.fit(X_location_B, y_location_B)
 pipe_cb_loc_B.fit(X_location_B, y_location_B)
 pipe_lr_loc_C.fit(X_location_C, y_location_C)
 pipe_rf_loc_C.fit(X_location_C, y_location_C)
-pipe_xgb_loc_C.fit(X_location_C, y_location_C, sample_weight = w)
+pipe_xgb_loc_C.fit(X_location_C, y_location_C, classifier__sample_weight = w)
 pipe_lgbm_loc_C.fit(X_location_C, y_location_C)
 pipe_cb_loc_C.fit(X_location_C, y_location_C)
 
