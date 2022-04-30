@@ -16,7 +16,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.metrics import f1_score, accuracy_score, confusion_matrix, classification_report, make_scorer
 from scipy.stats import kendalltau, spearmanr
 
-from mord import LogisticAT
+from mord import LogisticAT   #Ordinal logistic regression model (All-Thresholds variant)
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
@@ -179,9 +179,8 @@ for s in y_age:
 w = np.array(w) 
 
 
-
 score_lr_age = cross_validate(pipe_lr_age, X_age, y_age, cv = 5, scoring= age_scoring)
-score_olr_age = cross_validate(pipe_olr_age, X_age, y_age, cv =5, scoring= age_scoring)
+score_olr_age = cross_validate(pipe_olr_age, X_age, y_age, cv =5, scoring= age_scoring,fit_params={'classifier__sample_weight': w})
 score_rf_age = cross_validate(pipe_rf_age, X_age, y_age, cv = 5, scoring= age_scoring)
 score_xgb_age = cross_validate(pipe_xgb_age, X_age, y_age, cv = 5, scoring= age_scoring,fit_params={'classifier__sample_weight': w})
 score_lgbm_age = cross_validate(pipe_lgbm_age, X_age, y_age, cv = 5, scoring= age_scoring)
@@ -197,10 +196,10 @@ print_average_metrics(score_cb_age)
 
 
 #Fit the models on all the train set
-pipe_lr_age.fit(X_age,y_age)
+pipe_lr_age.fit(X_age,y_age, sample_weight = w)
 pipe_olr_age.fit(X_age,y_age)
 pipe_rf_age.fit(X_age,y_age)
-pipe_xgb_age.fit(X_age,y_age)
+pipe_xgb_age.fit(X_age,y_age, sample_weight = w)
 pipe_lgbm_age.fit(X_age,y_age)
 pipe_cb_age.fit(X_age,y_age)
 
