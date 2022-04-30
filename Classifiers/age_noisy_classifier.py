@@ -196,10 +196,10 @@ print_average_metrics(score_cb_age)
 
 
 #Fit the models on all the train set
-pipe_lr_age.fit(X_age,y_age, sample_weight = w)
+pipe_lr_age.fit(X_age,y_age, classifier__sample_weight = w)
 pipe_olr_age.fit(X_age,y_age)
 pipe_rf_age.fit(X_age,y_age)
-pipe_xgb_age.fit(X_age,y_age, sample_weight = w)
+pipe_xgb_age.fit(X_age,y_age, classifier__sample_weight = w)
 pipe_lgbm_age.fit(X_age,y_age)
 pipe_cb_age.fit(X_age,y_age)
 
