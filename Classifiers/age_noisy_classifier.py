@@ -171,7 +171,7 @@ age_scoring = {'accuracy': 'accuracy',
                'kendalltau': kendalltau_score,
                'spearmanr':spearmanr_score}
 
-#Set class weights for xgboost
+#Set class weights for ordinal logistic regression and xgboost
 c_w = compute_class_weight(class_weight = 'balanced', classes = np.unique(y_age), y = y_age)
 w = []
 for s in y_age:
