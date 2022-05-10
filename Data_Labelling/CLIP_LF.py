@@ -1,4 +1,6 @@
-#Predict user's gender with CLIP 
+"""
+Predict user's gender with CLIP. Used as a labeling function.
+"""
 
 #Import packages
 import pandas as pd
@@ -34,8 +36,6 @@ def CLIP_classification(url,
     Returns :
         probs : a list with the probabilities assigned to each text token
     '''
-
-    
     try:
       request = requests.get(url, stream = True)
       im = Image.open(request.raw)
@@ -43,10 +43,8 @@ def CLIP_classification(url,
       with torch.no_grad():
         image_features = model.encode_image(im_preprocessed)
         text_features = model.encode_text(text_tokens)
-    
       logits_per_image, logits_per_text = model(im_preprocessed, text_tokens)
       probs = logits_per_image.softmax(dim=-1).cpu().detach().numpy()
-
     except:
       probs = 'invalid_url or no face detected'
     return probs
@@ -63,14 +61,14 @@ def assign_gender_pred(row):
     # l =str(l)
     # l = ast.literal_eval(l)
     if l[0] > l[1] and l[0] > l[2]:
-      return 0
+      return 0 #Female
     elif l[1] > l[0] and l[1] > l[2]:
-      return 1
+      return 1 #Male
     else:
-      return -1
+      return -1 #Abstain
 
 
-#Apply the CLIP prediction
+#Apply the CLIP predictions
 user_df['CLIP'] = user_df['profile_image_url'].apply(lambda row : CLIP_classification(row))
 user_df['CLIP_gender'] = user_df['CLIP'].apply(lambda row : assign_gender_pred(row))
 user_df.to_csv('Data_Labelling/Gender/CLIP.csv', index = False)
