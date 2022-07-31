@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from pprint import pprint
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
+
 from sklearn.model_selection import cross_validate
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.preprocessing import  StandardScaler, MinMaxScaler, LabelEncoder, OneHotEncoder
