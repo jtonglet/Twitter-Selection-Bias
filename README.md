@@ -15,7 +15,7 @@ The objective of the Thesis is to define a process to infer the demographic attr
 <p align="justify">
 
   
-Demographic inference is characterized by a label scarcity problem, as the raw data collected from the Twitter API does not come with demographic labels. A first solution is to manually label a sample of users. Yet, this approach is time-intensive, costly, and not scalable. Instead, this Thesis relies on Programmatic Weak Supervision (PWS), a unified framework of weak supervision approaches, to generate a weakly labeled training set.   
+Demographic inference is characterized by a label scarcity problem, as the raw data collected from the Twitter API does not come with demographic labels. A first solution is to manually label a sample of users. Yet, this approach is time-intensive, costly, and not scalable. Instead, this thesis relies on Programmatic Weak Supervision (PWS), a unified framework of weak supervision approaches.   
 
 We implement a 3-step PWS process, as illustrated on the following figure. Firstly, we define a set of weak labeling functions (heuristics, knowledge bases, third-party models and few-shot learners) and combine their predictions in a generative model to create a weakly labeled training set.  Secondly, a discrimative model is trained on the weakly labeled data. Eventually, the noisy discriminative model is incorporated as a labeling function. The resulting extended generative model returns the final demographic labels for all users.
 
