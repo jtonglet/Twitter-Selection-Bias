@@ -33,7 +33,6 @@ We implement a 3-step PWS process, as illustrated on the following figure. First
 
 | Model | Gender Acc | Gender F1 | Age Acc | Age F1 | Location Acc | Location F1 |
 | --- | --- |  --- |  --- | --- | --- | --- |
-| Base Generative | 0.84 |  0.59 | 0.08 | 0.16 | 0.51 | 0.61 |
 | Mode | 0.69 | 0.4 |  0.52 | 0.17 | 0.34 | 0.073 |
 | M3  | 0.92 | 0.9 | 0.55 | 0.37 | - | - | 
 | Extended Generative | 0.92 |  0.9 | 0.55 | 0.41 | 0.74 | 0.69 |
