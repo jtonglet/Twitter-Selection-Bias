@@ -6,16 +6,9 @@ scipy
 matplotlib
 seaborn
 requests
-json
-time
-ast
 tqdm
-pprint
-shutil
-datetime
 snorkel
-re
-PIL
+Pillow
 deepface
 clip
 torch
