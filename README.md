@@ -1,5 +1,6 @@
 # Understanding and Correcting Selection Bias in the sentiments derived from Flemish Tweets
 
+** A more up-to-date version of the demographic inference model is available at [Demographics-PWS](https://github.com/jtonglet/Demographics-PWS). ** 
 
 This repository contains the code implementation of the KU Leuven Master's Thesis "Understanding and Correcting Selection Bias in the Sentiments derived from Flemish Tweets", written by Jonathan Tonglet and Astrid Jehoul in 2021-2022 under the supervision of Manon Reusens and Prof. Dr. Bart Baesens. The project was conducted in partnership with Statistiek Vlaanderen, represented by Dr. Michael Reusens. Our results were presented during a [seminar](https://www.vlaanderen.be/statistiek-vlaanderen/sv-seminarie-data-science-voor-openbare-statistieken-onderzoeksresultaten-academische-samenwerking) hosted by Statistics Flanders.
 
