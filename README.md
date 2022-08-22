@@ -1,6 +1,6 @@
 # Understanding and Correcting Selection Bias in the sentiments derived from Flemish Tweets
 
-** A more up-to-date version of the demographic inference model is available at [Demographics-PWS](https://github.com/jtonglet/Demographics-PWS). ** 
+**A more up-to-date version of the demographic inference model is available at [Demographics-PWS](https://github.com/jtonglet/Demographics-PWS)!** 
 
 This repository contains the code implementation of the KU Leuven Master's Thesis "Understanding and Correcting Selection Bias in the Sentiments derived from Flemish Tweets", written by Jonathan Tonglet and Astrid Jehoul in 2021-2022 under the supervision of Manon Reusens and Prof. Dr. Bart Baesens. The project was conducted in partnership with Statistiek Vlaanderen, represented by Dr. Michael Reusens. Our results were presented during a [seminar](https://www.vlaanderen.be/statistiek-vlaanderen/sv-seminarie-data-science-voor-openbare-statistieken-onderzoeksresultaten-academische-samenwerking) hosted by Statistics Flanders.
 
@@ -18,7 +18,7 @@ The objective of the Thesis is to define a process to infer the demographic attr
   
 Demographic inference is characterized by a label scarcity problem, as the raw data collected from the Twitter API does not come with demographic labels. A first solution is to manually label a sample of users. Yet, this approach is time-intensive, costly, and not scalable. Instead, this thesis relies on Programmatic Weak Supervision (PWS), a unified framework of weak supervision approaches.   
 
-We implement a 3-step PWS process, as illustrated on the following figure. Firstly, we define a set of weak labeling functions (heuristics, knowledge bases, third-party models and few-shot learners) and combine their predictions in a generative model to create a weakly labeled training set.  Secondly, a discrimative model is trained on the weakly labeled data. Eventually, the noisy discriminative model is incorporated as a labeling function. The resulting extended generative model returns the final demographic labels for all users.
+We implement 3-step PWS, a news PWS method which is illustrated on the figure below. Firstly, we define a set of weak labeling functions (heuristics, knowledge bases, third-party models and few-shot learners) and combine their predictions in a generative model to create a weakly labeled training set.  Secondly, a discrimative model is trained on the weakly labeled data. Eventually, the noisy discriminative model is incorporated as a labeling function. The resulting extended generative model returns the final demographic labels for all users.
 
 <p align="center">
   <img width="80%" src="img/PWS_process.PNG" alt="header" />
@@ -30,7 +30,7 @@ We implement a 3-step PWS process, as illustrated on the following figure. First
   
 ## Demographic Inference results
 
-
+Results were evaluated on a hand-labeled test set and benchmarked against those of M3 the state-of-the-art deep learning demographic inference model.
 
 | Model | Gender Acc | Gender F1 | Age Acc | Age F1 | Location Acc | Location F1 |
 | --- | --- |  --- |  --- | --- | --- | --- |
@@ -44,7 +44,7 @@ F1 = macro F1-score
 ## Structure of the repository
 <p align="justify">
   
-- *Classifiers*:  Create a feature matrix and train the noisy classifiers on the weakly labeled training set.
+- *Classifiers*:  Create a feature matrix and train the noisy classifiers on the weakly labeled set.
 - *Data_Collection*: Collect data from the Twitter Academic Research API and format it in a Pandas DataFrame. Data collection code is largely inspired from [this](https://towardsdatascience.com/an-extensive-guide-to-collecting-tweets-from-twitter-api-v2-for-academic-research-using-python-3-518fcb71df2a) excellent online tutorial. Includes code to identify active user accounts, perform a train-test split and remove company accounts from the training set.
 - *Data_Labeling*: Create Labeling Functions (LFs) and a weakly labeled training set using the Snorkel generative label model. It also includes keywords lists and knowledge sources used by the LFs.
 - *Demographic_Inference*: Perform demographic inference with the Extended Generative Model or the [M3](https://github.com/euagendas/m3inference) model.
