@@ -64,7 +64,7 @@ This repository requires Python 3.8. The list of required packages can be found 
   
   </p>
 
-## Citation
+<!-- ## Citation
 
 If you use our code for your projects, please cite our paper :
 
@@ -75,4 +75,4 @@ If you use our code for your projects, please cite our paper :
   school  = "KU Leuven",
   year    = "2022",
 }
-```
+``` -->
