@@ -10,7 +10,6 @@ tqdm
 snorkel
 Pillow
 deepface
-clip
 torch
 nltk
 mord
