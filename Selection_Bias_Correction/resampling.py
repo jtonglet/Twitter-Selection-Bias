@@ -1,19 +1,19 @@
 """
 Code implementation of the resampling algorithm proposed by Wang & al. in 
-'Correcting biases in online social media data based on target distributions in the physical world' (2020) 
+'Correcting biases in online social media data based on target distributions in the physical world' (IEEE Access 2020) 
 """
 
 import numpy as np
 import pandas as pd
 
 class Resampler:
-
+    """
+    Params:
+        N  (int) : desired sample size at the end of the resampling process
+        n (int)  : step size
+        seed (int): random seed for reproducibility
+    """
     def __init__(self,N = 2000, n = 10, seed = 42):
-        """
-        Args:
-            N  (int) : desired sample size at the end of the resampling process
-            n (int)  : step size
-        """
         self.N = N
         self.n = n   
         self.seed = seed
@@ -40,11 +40,9 @@ class Resampler:
         
     def get_transition_matrix(self):
         return self.Q
-
-        
+       
     def get_acceptance_matrix(self):
         return self.A
-
 
     def get_transition_acceptance_matrix(self):
         return self.QA
@@ -94,4 +92,3 @@ class Resampler:
         self.fit(census,sample_dist)
         s= self.resample(dataset)
         return s
-
