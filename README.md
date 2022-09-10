@@ -27,30 +27,7 @@ We implement 3-step PWS, a news PWS method which is illustrated on the figure be
   
   </p>
   
-  
-## Demographic Inference results
 
-Results were evaluated on a hand-labeled test set and benchmarked against those of M3 the state-of-the-art deep learning demographic inference model.
-
-| Model | Gender Acc | Gender F1 | Age Acc | Age F1 | Location Acc | Location F1 |
-| --- | --- |  --- |  --- | --- | --- | --- |
-| Mode | 0.69 | 0.4 |  0.52 | 0.17 | 0.34 | 0.073 |
-| M3  | 0.92 | 0.9 | 0.55 | 0.37 | - | - | 
-| Extended Generative | 0.92 |  0.9 | 0.55 | 0.41 | 0.74 | 0.69 |
-
-Acc = accuracy;
-F1 = macro F1-score
-
-## Structure of the repository
-<p align="justify">
-  
-- *Classifiers*:  Create a feature matrix and train the noisy classifiers on the weakly labeled set.
-- *Data_Collection*: Collect data from the Twitter Academic Research API and format it in a Pandas DataFrame. Data collection code is largely inspired from [this](https://towardsdatascience.com/an-extensive-guide-to-collecting-tweets-from-twitter-api-v2-for-academic-research-using-python-3-518fcb71df2a) excellent online tutorial. Includes code to identify active user accounts, perform a train-test split and remove company accounts from the training set.
-- *Data_Labeling*: Create Labeling Functions (LFs) and a weakly labeled training set using the Snorkel generative label model. It also includes keywords lists and knowledge sources used by the LFs.
-- *Demographic_Inference*: Perform demographic inference with the Extended Generative Model or the [M3](https://github.com/euagendas/m3inference) model.
-- *Selection_Bias_Correction*: Correct selection bias using a resampling method and compute the Twitter inclusion probabilities.
-  
-  </p>
   
 ## Data Access
 
