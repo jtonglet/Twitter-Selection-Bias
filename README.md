@@ -1,6 +1,6 @@
 # Understanding and Correcting Selection Bias in the sentiments derived from Flemish Tweets
 
-**!! A more up-to-date version of the demographic inference model is available at [Demographics-PWS](https://github.com/jtonglet/Demographics-PWS) !!** 
+**!! The demographic inference model used to get the Twitter population estimates is available at [Demographics-PWS](https://github.com/jtonglet/Demographics-PWS) !!** 
 
 This repository contains the code implementation of the KU Leuven Master's Thesis "Understanding and Correcting Selection Bias in the Sentiments derived from Flemish Tweets", written by Jonathan Tonglet and Astrid Jehoul in 2021-2022 under the supervision of Manon Reusens and Prof. Dr. Bart Baesens. The project was conducted in partnership with Statistiek Vlaanderen, represented by Dr. Michael Reusens. Our results were presented during a [seminar](https://www.vlaanderen.be/statistiek-vlaanderen/sv-seminarie-data-science-voor-openbare-statistieken-onderzoeksresultaten-academische-samenwerking) hosted by Statistics Flanders.
 
@@ -19,16 +19,11 @@ The objective of the Thesis is to define a process to infer the demographic attr
 Demographic inference is characterized by a label scarcity problem, as the raw data collected from the Twitter API does not come with demographic labels. A first solution is to manually label a sample of users. Yet, this approach is time-intensive, costly, and not scalable. Instead, this thesis relies on Programmatic Weak Supervision (PWS), a unified framework of weak supervision approaches.   
 
 We implement 3-step PWS, a news PWS method which is illustrated on the figure below. Firstly, we define a set of weak labeling functions (heuristics, knowledge bases, third-party models and few-shot learners) and combine their predictions in a generative model to create a weakly labeled training set.  Secondly, a discrimative model is trained on the weakly labeled data. Eventually, the noisy discriminative model is incorporated as a labeling function. The resulting extended generative model returns the final demographic labels for all users.
-
-<p align="center">
-  <img width="80%" src="img/PWS_process.PNG" alt="header" />
-</p>
+This model is available at [Demographics-PWS](https://github.com/jtonglet/Demographics-PWS).
 
   
   </p>
-  
-
-  
+ 
 ## Data Access
 
 For privacy reasons, the Twitter data collected for the Thesis experiments cannot be shared online. However, aggregated demographic predictions are available [here](https://github.com/jtonglet/Twitter-Selection-Bias/blob/main/Selection_Bias_Correction/Census_Demographics_Twitter.csv).
