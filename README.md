@@ -23,7 +23,28 @@ This model is available at [Demographics-PWS](https://github.com/jtonglet/Demogr
 
   
   </p>
- 
+  
+## Resampling
+
+How to use the resampler :
+
+```python
+from scipy.spatial.distance import jensenshannon
+from resampling import Resampler
+
+census = []
+twitter = []
+
+resampler = Resampler(seed = 42)  
+resampler.fit(census,twitter)
+
+sample = resampler.resample(dataset)
+sample_dist = sample['dem'].value_counts(normalize = True).sort_index()
+for i in range(8):
+  if i not in sample_dist.index : #If no user from that category has been sampled, add a row with value 0 for that category
+    sample_dist[i] = 0
+print("Jensen-Shannon divergence after correction : %s"%jensenshannon(census,sample_dist))
+```
 ## Data Access
 
 For privacy reasons, the Twitter data collected for the Thesis experiments cannot be shared online. However, aggregated demographic predictions are available [here](https://github.com/jtonglet/Twitter-Selection-Bias/blob/main/Selection_Bias_Correction/Census_Demographics_Twitter.csv).
