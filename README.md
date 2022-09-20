@@ -27,7 +27,7 @@ This model is available at [Demographics-PWS](https://github.com/jtonglet/Demogr
 ## Resampling
 
 
-How to use the resampler :
+Here is a code snippet showing how to use the resampler proposed in [*Correcting biases in online social media data based on target distributions in the physical world*](https://ieeexplore.ieee.org/abstract/document/8960343) (Wang et al., 2020).
 
 ```python
 from scipy.spatial.distance import jensenshannon
