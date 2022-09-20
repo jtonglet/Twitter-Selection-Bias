@@ -26,23 +26,27 @@ This model is available at [Demographics-PWS](https://github.com/jtonglet/Demogr
   
 ## Resampling
 
+
 How to use the resampler :
 
 ```python
 from scipy.spatial.distance import jensenshannon
 from resampling import Resampler
 
-census = []
-twitter = []
+census = []   #Add the distribution in the census. Values should sum to 1
+twitter = [] #Add the distribution in the Twitter data. Values should sum to 1
 
+#Initialize a resampler and fit it on the data
 resampler = Resampler(seed = 42)  
 resampler.fit(census,twitter)
 
+#Collect a representative sample of the data
 sample = resampler.resample(dataset)
 sample_dist = sample['dem'].value_counts(normalize = True).sort_index()
 for i in range(8):
   if i not in sample_dist.index : #If no user from that category has been sampled, add a row with value 0 for that category
     sample_dist[i] = 0
+#Jensen-Shannon divergence is a measure of the difference between two distributions
 print("Jensen-Shannon divergence after correction : %s"%jensenshannon(census,sample_dist))
 ```
 ## Data Access
@@ -56,16 +60,3 @@ For privacy reasons, the Twitter data collected for the Thesis experiments canno
 This repository requires Python 3.8. The list of required packages can be found in *requirements.txt*
   
   </p>
-
-<!-- ## Citation
-
-If you use our code for your projects, please cite our paper :
-
-```
-@mastersthesis{tonglet2022TwitterPWS,
-  author  = "Tonglet, Jonathan and Jehoul, Astrid and Reusens, Manon and Reusens, Michael and Baesens, Bart",
-  title   = "Predicting the Demographics of Twitter users with Programmatic Weak Supervision",
-  school  = "KU Leuven",
-  year    = "2022",
-}
-``` -->
