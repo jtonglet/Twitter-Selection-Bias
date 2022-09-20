@@ -12,7 +12,7 @@ library(data.table)
 
 # fb_data3 is for models assuming inhomogeneous bias
 # Loading demographics data 
-fb_data3 =  read.csv("inclusion_proba_input.csv",
+fb_data3 =  read.csv("data/inclusion_proba_input.csv",
                      header=TRUE,sep=";",dec = ',')
 fb_data3 = na.omit(fb_data3)
 View(fb_data3)
@@ -95,5 +95,5 @@ incl_probs_df$gender = fb_data3$gender
 colnames(incl_probs_df) <- c("incl_prob", "province", "age", "gender")
 setcolorder(incl_probs_df, c("province", "age", "gender", "incl_prob"))
 
-write.csv(incl_probs_df, file = "inclusion_probabilities_provinces.csv")
-write.csv(fb_data3,file = 'data/census_with_predictions.csv')
+write.csv(incl_probs_df, file = "output/inclusion_probabilities_provinces.csv")
+write.csv(fb_data3,file = 'output/census_with_predictions.csv')
