@@ -26,7 +26,6 @@ This model is available at [Demographics-PWS](https://github.com/jtonglet/Demogr
   
 ## Resampling
 
-
 Here is a code snippet showing how to use the resampler proposed in [*Correcting biases in online social media data based on target distributions in the physical world*](https://ieeexplore.ieee.org/abstract/document/8960343) (Wang et al., 2020).
 
 ```python
@@ -42,13 +41,20 @@ resampler.fit(census,twitter)
 
 #Collect a representative sample of the data
 sample = resampler.resample(dataset)
+
+#Evaluate the quality of the new sample
+#Get the percentage of users per demographic category in the sample
 sample_dist = sample['dem'].value_counts(normalize = True).sort_index()
-for i in range(8):
+for i in range(len(twitter)):
   if i not in sample_dist.index : #If no user from that category has been sampled, add a row with value 0 for that category
     sample_dist[i] = 0
 #Jensen-Shannon divergence is a measure of the difference between two distributions
 print("Jensen-Shannon divergence after correction : %s"%jensenshannon(census,sample_dist))
 ```
+
+## Reweighting
+The reweighting experiment is available in *compute_inclusion_probabilities_by_region.R*. This experiment is fully based on the paper [*Demographic Inference and Representative Population Estimates from Multilingual Social Media Data*](https://dl.acm.org/doi/10.1145/3308558.3313684) (Wang et al., 2019) and its [code](https://github.com/euagendas/twitter-poststratification). 
+
 ## Data Access
 
 For privacy reasons, the Twitter data collected for the Thesis experiments cannot be shared online. However, aggregated demographic predictions are available [here](https://github.com/jtonglet/Twitter-Selection-Bias/blob/main/Selection_Bias_Correction/Census_Demographics_Twitter.csv).
